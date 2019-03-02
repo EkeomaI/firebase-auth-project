@@ -1,0 +1,424 @@
+<% pageTitle = "Welcome"; %>
+<%- include('layout/header')-%>
+
+<% if ( currentState ) {%>
+
+<div class="nav-wrapper" role="navigation">
+    <div class="nav-brand">
+        <img src="images/brand.png" alt="brand" width="35px" height="35px">
+        <a href="/"><span class="ndiafia-brand">NdiAfia</span></a>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item"><a href="/" id="homeLink" role="menuitem">Home</a> </div>
+    </div>
+
+    <div class="dropdown">
+        <a class="profileLink" role="button" onclick="openProfileMenu()" ondblclick="closeProfileMenu()">
+            <div class="nav-item display-spacing">
+                <%= userInfo.name %>
+            </div>
+            <div class="nav-item placeImage">
+                <% if (userInfo.photoURL == null) {%>
+                <img src="images/imagePlaceholder.png" alt="" width="30px" height="30px">
+                <%}else{%>
+                <img src="<%= userInfo.photoURL %>" alt="" width="30px" height="30px">
+                <%}%>
+            </div>
+        </a>
+        <div id="myDropdown" class="dropdown-content" onclick="closeProfileMenu()">
+            <a href="/profile" style="text-decoration: none;">Profile</a>
+            <a href="/update-profile" style="text-decoration:none;">Settings</a>
+            <a href="/logout" style="text-decoration: none;">Log Out</a>
+            <a style="color:gray;">Close</a>
+        </div>
+    </div>
+
+</div>
+<%} else {%>
+
+<div class="nav-wrapper" role="navigation">
+    <div class="nav-brand">
+        <img src="images/brand.png" alt="brand" width="35px" height="35px">
+        <a href="/"><span class="ndiafia-brand">NdiAfia</span></a>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item"><a href="/" id="homeLink" role="menuitem">Home</a> </div>
+        <div class="nav-item"><a href="/login" id="loginLink" role="menuitem">Log In</a> </div>
+        <div class="nav-item"><a href="/register" id="registerLink" role="menuitem">Register</a> </div>
+    </div>
+</div>
+
+<%}%>
+
+<div class="side-container">
+    <div class="card" style="width:100%;padding:10px ;">
+        <% if (userInfo.photoURL == null) {%>
+        <img class="card-img-top" src="images/imagePlaceholder.png" alt="" width="200px" height="240px">
+        <%}else{%>
+        <img class="card-img-top" src="<%= userInfo.photoURL %>" alt="" width="200px" height="240px">
+        <%}%>
+
+        <div class="card-body">
+            <h5 class="card-title">Contact</h5>
+            <div class="card-text" style="font-size:14px;">
+                Name:
+                <%= userInfo.fname %>
+            </div>
+            <div class="card-text" style="font-size:14px;">
+                Email:
+                <%= userInfo.email %>
+            </div>
+            <form action="/update-profile">
+                <div class="btn-padded">
+                    <button type="submit" class="btne card-btn">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- <div class="card" style="width:100%;height:12.5%;margin:10px 0 20px 0;overflow:initial;">
+        <div class="card-body">
+            <h6 class="card-title">Contact</h6>
+            <div class="card-text" style="font-size:14px;">
+                Name:
+                <%= userInfo.fname %>
+            </div>
+            <div class="card-text" style="font-size:14px;">
+                Email:
+                <%= userInfo.email %>
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<div class="main-container">
+
+    <div class="middle-container">
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: khaki;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:14px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:14px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-right-container">
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: #b4f08c;margin:4px;scroll-snap-align: start;">
+            <div class="card-body">
+                <h6 class="card-title">Contact</h6>
+                <div class="card-text" style="font-size:10px;">
+                    Name:
+                    <%= userInfo.fname %>
+                </div>
+                <div class="card-text" style="font-size:10px;">
+                    Email:
+                    <%= userInfo.email %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include('layout/footer') -%>

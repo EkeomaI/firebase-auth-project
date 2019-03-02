@@ -1,0 +1,79 @@
+<%- include('layout/header') -%>
+
+<% if ( currentState ) {%>
+
+<div class="nav-wrapper" role="navigation">
+    <div class="nav-brand">
+        <img src="images/brand.png" alt="brand" width="35px" height="35px">
+        <a href="/"><span class="ndiafia-brand">NdiAfia</span></a>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item"><a href="/" id="homeLink" role="menuitem">Home</a> </div>
+    </div>
+
+    <div class="dropdown">
+        <a class="profileLink" role="button" onclick="openProfileMenu()" ondblclick="closeProfileMenu()">
+        <div class="nav-item display-spacing">
+              <%= userInfo.name %>  
+        </div>
+        <div class="nav-item placeImage">
+                <img src="images/profile.jpg" alt="img" width="30px" height="30px">
+        </div>
+        </a>
+        <div id="myDropdown" class="dropdown-content" onclick="closeProfileMenu()">
+        <a href="/profile" style="text-decoration: none;">Profile</a>
+        <a href="/update-profile" style="text-decoration: none;">Settings</a>
+            <a href="/logout" style="text-decoration: none;">Log Out</a>
+            <a style="color:gray;">Close</a>
+        </div>
+    </div>
+
+</div>
+<%} else {%>
+
+<div class="nav-wrapper" role="navigation">
+    <div class="nav-brand">
+        <img src="images/brand.png" alt="brand" width="35px" height="35px">
+        <a href="/"><span class="ndiafia-brand">NdiAfia</span></a>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item"><a href="/" id="homeLink" role="menuitem">Home</a> </div>
+        <div class="nav-item"><a href="/login" id="loginLink" role="menuitem">Log In</a> </div>
+        <div class="nav-item"><a href="/register" id="registerLink" role="menuitem">Register</a> </div>
+    </div>
+</div>
+
+<%}%>
+
+<div class="form-wrapper">
+    <div class="" style="color:#ff0000;padding-bottom:10px;">
+        <% if (errorMsg !== null || errorMsg !== ""){%>
+        <%= errorMsg %>
+        <%}%>
+    </div>
+    <form action="/login" method="post">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="loginEmail" autocomplete><br>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="loginPassword"><br>
+    <button class="btne">
+        Log In
+    </button>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script>
+    // $("button").click(function () {
+    //     var email = loginEmail.value;
+    //     var password = loginPassword.value;
+    //     $.post('/login', {
+    //         email: loginEmail.value,
+    //         password: loginPassword.value
+    //     }, function (result) {
+    //         console.log('successfully posted email & password to login page');
+    //     });
+    // });
+</script>
+
+<%- include('layout/footer') -%>

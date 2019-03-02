@@ -1,0 +1,153 @@
+<%- include('layout/header') -%>
+<script>
+    body {
+        font - family: sans - serif;
+        scroll - snap - type: mandatory;
+        scroll - snap - points - y: repeat(100 vh);
+        scroll - snap - type: y mandatory;
+    }
+</script>
+
+<% if ( currentState ) {%>
+
+<div class="nav-wrapper" role="navigation">
+    <div class="nav-brand">
+        <img src="images/brand.png" alt="brand" width="35px" height="35px">
+        <a href="/"><span class="ndiafia-brand">NdiAfia</span></a>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item"><a href="/" id="homeLink" role="menuitem">Home</a> </div>
+    </div>
+
+    <div class="dropdown">
+        <a class="profileLink" role="button" onclick="openProfileMenu()" ondblclick="closeProfileMenu()">
+            <div class="nav-item display-spacing">
+                <%= userInfo.name %>
+            </div>
+            <div class="nav-item placeImage">
+                <% if (userInfo.photoURL == null) {%>
+                <img src="images/imagePlaceholder.png" alt="" width="30px" height="30px">
+                <%}else{%>
+                <img src="<%= userInfo.photoURL %>" alt="" width="30px" height="30px">
+                <%}%>
+            </div>
+        </a>
+        <div id="myDropdown" class="dropdown-content" onclick="closeProfileMenu()">
+            <a href="/profile">Profile</a>
+            <a href="/update-profile">Settings</a>
+            <a href="/logout">Log Out</a>
+            <a style="color:gray;">Close</a>
+        </div>
+    </div>
+
+</div>
+<%} else {%>
+
+<div class="nav-wrapper" role="navigation">
+    <div class="nav-brand">
+        <img src="images/brand.png" alt="brand" width="35px" height="35px">
+        <a href="/"><span class="ndiafia-brand">NdiAfia</span></a>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item"><a href="/" id="homeLink" role="menuitem">Home</a> </div>
+        <div class="nav-item"><a href="/login" id="loginLink" role="menuitem">Log In</a> </div>
+        <div class="nav-item"><a href="/register" id="registerLink" role="menuitem">Register</a> </div>
+    </div>
+</div>
+
+<%}%>
+
+<section>
+    <h1>Section 1</h1>
+    <div class="home-wrapper" style="width:38vw;margin:auto;display:flex;flex-direction:row;border-radius:8px;box-shadow:10px 10px 8px #888888;background-color: #ddd;padding: 10px;">
+        <div class="image-con" style="border-radius:50%;width:180px;height:180px;overflow: hidden;">
+            <img src="<%= userInfo.photoURL %>" width="180px" height="180px" alt="">
+        </div>
+        <div class="con-con" style="text-align:left;">
+            <ul style="list-style: none;">
+                <li>Name:
+                    <%= userInfo.name %>
+                </li>
+                <li>email:
+                    <%= userInfo.email %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section>
+    <h1>Section 2</h1>
+    <div class="home-wrapper" style="width:38vw;margin:auto;display:flex;flex-direction:row;border-radius:8px;box-shadow:10px 10px 8px #888888;background-color: #ddd;padding: 10px;">
+        <div class="image-con" style="border-radius:50%;width:180px;height:180px;overflow: hidden;">
+            <img src="<%= userInfo.photoURL %>" width="180px" height="180px" alt="">
+        </div>
+        <div class="con-con" style="text-align:left;">
+            <ul style="list-style: none;">
+                <li>Name:
+                    <%= userInfo.name %>
+                </li>
+                <li>email:
+                    <%= userInfo.email %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section>
+    <h1>Section 3</h1>
+    <div class="home-wrapper" style="width:38vw;margin:auto;display:flex;flex-direction:row;border-radius:8px;box-shadow:10px 10px 8px #888888;background-color: #ddd;padding: 10px;">
+        <div class="image-con" style="border-radius:50%;width:180px;height:180px;overflow: hidden;">
+            <img src="<%= userInfo.photoURL %>" width="180px" height="180px" alt="">
+        </div>
+        <div class="con-con" style="text-align:left;">
+            <ul style="list-style: none;">
+                <li>Name:
+                    <%= userInfo.name %>
+                </li>
+                <li>email:
+                    <%= userInfo.email %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section>
+    <h1>Section 4</h1>
+    <div class="home-wrapper" style="width:38vw;margin:auto;display:flex;flex-direction:row;border-radius:8px;box-shadow:10px 10px 8px #888888;background-color: #ddd;padding: 10px;">
+        <div class="image-con" style="border-radius:50%;width:180px;height:180px;overflow: hidden;">
+            <img src="<%= userInfo.photoURL %>" width="180px" height="180px" alt="">
+        </div>
+        <div class="con-con" style="text-align:left;">
+            <ul style="list-style: none;">
+                <li>Name:
+                    <%= userInfo.name %>
+                </li>
+                <li>email:
+                    <%= userInfo.email %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section>
+    <h1>Section 5</h1>
+    <div class="home-wrapper" style="width:38vw;margin:auto;display:flex;flex-direction:row;border-radius:8px;box-shadow:10px 10px 8px #888888;background-color: #ddd;padding: 10px;">
+        <div class="image-con" style="border-radius:50%;width:180px;height:180px;overflow: hidden;">
+            <img src="<%= userInfo.photoURL %>" width="180px" height="180px" alt="">
+        </div>
+        <div class="con-con" style="text-align:left;">
+            <ul style="list-style: none;">
+                <li>Name:
+                    <%= userInfo.name %>
+                </li>
+                <li>email:
+                    <%= userInfo.email %>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+
+<%- include('layout/footer') -%>
